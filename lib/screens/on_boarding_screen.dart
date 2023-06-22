@@ -2,6 +2,8 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'register_screens.dart';
+
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
   static const String id = "on-board-page";
@@ -176,7 +178,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                              const RegistrationScreen()));
+                                              const RegisterScreen()));
                                 },
                                 child: const Text(
                                   "Start Saving Foods",
@@ -189,7 +191,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          const RegistrationScreen()));
+                                          const RegisterScreen()));
                             },
                             child: const Text(
                               "SKIP TO THE APP >>>",

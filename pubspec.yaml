@@ -17,6 +17,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   dots_indicator: ^3.0.0
+  country_picker: ^2.0.20
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +45,8 @@ flutter:
     - assets/icons/image5.png
     - assets/icons/last.png
     - assets/icons/catgories.png
+    - assets/icons/register.png
+    - assets/icons/otp.png
   
 
   
