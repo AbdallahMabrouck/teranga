@@ -69,10 +69,10 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                 InkWell(
                   onTap: () => selectImage(),
                   child: image == null
-                      ? CircleAvatar(
-                          backgroundColor: Colors.blue.shade900,
+                      ? const CircleAvatar(
+                          backgroundColor: Colors.green,
                           radius: 50,
-                          child: const Icon(
+                          child: Icon(
                             Icons.account_circle,
                             size: 50,
                             color: Colors.white,
@@ -142,11 +142,11 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                               builder: (BuildContext context) =>
                                   const HomeScreen()));
                     },
-                    child: Text(
+                    child: const Text(
                       "Continue",
                       style: TextStyle(
                           fontSize: 20,
-                          color: Colors.blue.shade900,
+                          color: Colors.green,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -169,7 +169,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: TextFormField(
-        cursorColor: Colors.blue.shade900,
+        cursorColor: Colors.green,
         controller: controller,
         keyboardType: inputType,
         maxLines: maxLines,
@@ -178,7 +178,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
             margin: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: Colors.blue.shade900,
+              color: Colors.green,
             ),
             child: Icon(
               icon,
@@ -201,56 +201,10 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
           hintText: hintText,
           alignLabelWithHint: true,
           border: InputBorder.none,
-          fillColor: Colors.blue.shade200,
+          fillColor: Colors.green.shade50,
           filled: true,
         ),
       ),
     );
-  }
-}
-
-class UserModel {
-  String name;
-  String email;
-  String bio;
-  String profilePic;
-  String createdAt;
-  String phoneNumber;
-  String uid;
-
-  UserModel({
-    required this.name,
-    required this.email,
-    required this.bio,
-    required this.profilePic,
-    required this.createdAt,
-    required this.phoneNumber,
-    required this.uid,
-  });
-
-  // from map
-  factory UserModel.fromMap(Map<String, dynamic> map) {
-    return UserModel(
-      name: map['name'] ?? '',
-      email: map['email'] ?? '',
-      bio: map['bio'] ?? '',
-      uid: map['uid'] ?? '',
-      phoneNumber: map['phoneNumber'] ?? '',
-      createdAt: map['createdAt'] ?? '',
-      profilePic: map['profilePic'] ?? '',
-    );
-  }
-
-  // to map
-  Map<String, dynamic> toMap() {
-    return {
-      "name": name,
-      "email": email,
-      "uid": uid,
-      "bio": bio,
-      "profilePic": profilePic,
-      "phoneNumber": phoneNumber,
-      "createdAt": createdAt,
-    };
   }
 }

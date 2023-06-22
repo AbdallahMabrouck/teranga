@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
+import 'user_information_screen.dart';
+
 class OtpScreen extends StatefulWidget {
   const OtpScreen({
     super.key,
@@ -109,7 +111,13 @@ class _OtpScreenState extends State<OtpScreen> {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const UserInformationScreen()));
+                    },
                     child: const Text(
                       "Verify",
                       style: TextStyle(
