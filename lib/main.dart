@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teranga/screens/splash_screen.dart';
 
 import 'screens/on_boarding_screen.dart';
+import 'screens/otp_screen.dart';
 import 'screens/register_screens.dart';
 
 void main() {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         SplashScreen.id: (context) => const SplashScreen(),
         OnBoardingScreen.id: (context) => const OnBoardingScreen(),
         RegisterScreen.id: (context) => const RegisterScreen(),
+        OtpScreen.id: (context) => const OtpScreen(),
       },
     );
   }
