@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:teranga/screens/splash_screen.dart';
 
+import 'screens/home_screen.dart';
 import 'screens/on_boarding_screen.dart';
 import 'screens/otp_screen.dart';
 import 'screens/register_screens.dart';
+import 'screens/user_information_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
         OnBoardingScreen.id: (context) => const OnBoardingScreen(),
         RegisterScreen.id: (context) => const RegisterScreen(),
         OtpScreen.id: (context) => const OtpScreen(),
+        UserInformationScreen.id: (context) => const UserInformationScreen(),
+        HomeScreen.id: (context) => const HomeScreen(),
       },
     );
   }
