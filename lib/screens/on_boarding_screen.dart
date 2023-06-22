@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -9,76 +10,237 @@ class OnBoardingScreen extends StatefulWidget {
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
 
-final _controller = PageController(initialPage: 0);
-
-int _currentPage = 0;
-
-List<Widget> _pages = [
-  Column(
-    children: [
-      Expanded(child: Image.asset("")),
-      const Text(
-        "Set your Address location",
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-        textAlign: TextAlign.center,
-      ),
-    ],
-  ),
-  Column(
-    children: [
-      Expanded(child: Image.asset("")),
-      const Text(
-        "Order online from your favorite store",
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-        textAlign: TextAlign.center,
-      ),
-    ],
-  ),
-  Column(
-    children: [
-      Expanded(child: Image.asset("")),
-      const Text(
-        "Quick delivery to your doorstep",
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-        textAlign: TextAlign.center,
-      ),
-    ],
-  ),
-];
-
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  double scrollerPosition = 0;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: PageView(
-            controller: _controller,
-            children: _pages,
-            onPageChanged: (index) {
-              setState(() {
-                _currentPage = index;
-              });
-            },
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        DotsIndicator(
-          dotsCount: _pages.length,
-          position: _currentPage,
-          decorator: DotsDecorator(
-              shape: const Border(),
-              activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
+    // this will stop landscape mode
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            // Page View
+            PageView(
+              onPageChanged: (val) {
+                setState(() {
+                  scrollerPosition = val.toDouble();
+                });
+              },
+              children: [
+                OnBoardPage(
+                  boardColumn: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                        "Welcome \n To Teranga",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 32),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: Image.asset("assets/icons/welcome.png")),
+                    ],
+                  ),
+                ),
+                OnBoardPage(
+                  boardColumn: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                        "Set up your delivery Location",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 32),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: Image.asset(
+                            "assets/icons/image4.png",
+                            cacheHeight: 1500,
+                          )),
+                    ],
+                  ),
+                ),
+                OnBoardPage(
+                  boardColumn: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                        "Rescue Your favorite meals ",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 32),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: Image.asset("assets/icons/catgories.png")),
+                    ],
+                  ),
+                ),
+                OnBoardPage(
+                  boardColumn: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                        "Enjoy delicious foods at discounted prices",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 32),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: Image.asset("assets/icons/image5.png")),
+                    ],
+                  ),
+                ),
+                OnBoardPage(
+                  boardColumn: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                        "Save the Earth",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 32),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: Image.asset("assets/icons/last.png")),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
+            // Dot indicator
+
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    DotsIndicator(
+                      dotsCount: 5,
+                      position: scrollerPosition.toInt(),
+                      decorator: const DotsDecorator(
+                        activeColor: Colors.green,
+                      ),
+                    ),
+                    scrollerPosition == 4
+                        ? Padding(
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            child: ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.green)),
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const RegistrationScreen()));
+                                },
+                                child: const Text(
+                                  "Start Saving Foods",
+                                  style: TextStyle(color: Colors.white),
+                                )),
+                          )
+                        : TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const RegistrationScreen()));
+                            },
+                            child: const Text(
+                              "SKIP TO THE APP >>>",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.green),
+                            ),
+                          ),
+                    const SizedBox(
+                      height: 20,
+                    )
+                  ],
+                ),
               ),
-              activeColor: Colors.red),
+            ),
+          ],
         ),
-        const SizedBox(
-          height: 20,
-        ),
-      ],
+      ),
+    );
+  }
+}
+
+class OnBoardPage extends StatelessWidget {
+  const OnBoardPage({super.key, required this.boardColumn});
+
+  final Column boardColumn;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Stack(
+        children: [
+          Container(
+            color: Colors.green,
+            child: Center(child: boardColumn),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 80,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(80),
+                    topLeft: Radius.circular(80),
+                  ),
+                  color: Colors.white),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
