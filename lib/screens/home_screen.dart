@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teranga/screens/google_map_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -191,6 +192,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      body: const MapScreen(),
     );
   }
 }
