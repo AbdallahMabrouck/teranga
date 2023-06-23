@@ -39,6 +39,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      drawer: const Drawer(),
     );
   }
 }
