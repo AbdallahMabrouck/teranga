@@ -7,9 +7,31 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Home Screen"),
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(40),
+        child: AppBar(
+          backgroundColor: Colors.white70,
+          elevation: 0.0,
+          centerTitle: true,
+          title: const Text(
+            "Teranga",
+            style: TextStyle(
+                letterSpacing: 2,
+                color: Colors.white70,
+                fontWeight: FontWeight.bold,
+                fontSize: 20),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.search,
+                color: Colors.white70,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
