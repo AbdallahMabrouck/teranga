@@ -11,23 +11,29 @@ class HomeScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(40),
         child: AppBar(
-          backgroundColor: Colors.white70,
+          backgroundColor: Colors.green,
           elevation: 0.0,
           centerTitle: true,
-          title: const Text(
-            "Teranga",
-            style: TextStyle(
-                letterSpacing: 2,
-                color: Colors.white70,
-                fontWeight: FontWeight.bold,
-                fontSize: 20),
+          title: const Padding(
+            padding: EdgeInsets.only(bottom: 20),
+            child: Text(
+              "Teranga",
+              style: TextStyle(
+                  letterSpacing: 2,
+                  color: Colors.white70,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
           ),
           actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.search,
-                color: Colors.white70,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.white70,
+                ),
               ),
             ),
           ],
