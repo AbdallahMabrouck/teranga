@@ -22,21 +22,9 @@ class HomeScreen extends StatelessWidget {
                   letterSpacing: 2,
                   color: Colors.white70,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20),
+                  fontSize: 28),
             ),
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.search,
-                  color: Colors.white70,
-                ),
-              ),
-            ),
-          ],
         ),
       ),
       drawer: Drawer(

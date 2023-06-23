@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1075325792769",
+    "project_id": "teranga-d4f91",
+    "storage_bucket": "teranga-d4f91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075325792769:android:9662a5478b60ea4f7d0600",
+        "android_client_info": {
+          "package_name": "com.example.teranga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075325792769-lvdcla569g9bhbgdtj73rjhvupe2fpq6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teranga",
+            "certificate_hash": "12328cc4ed9957e8ec9668878b0b0f0c8a84d523"
+          }
+        },
+        {
+          "client_id": "1075325792769-nt64lnj70544p4b6di0jqnl78qmms98l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9xjHw8pdh4bD-O2ZfKHEQ3EPkmSJ7oUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075325792769-nt64lnj70544p4b6di0jqnl78qmms98l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
