@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location/location.dart';
 import 'package:geocoding/geocoding.dart' as geocoding;
 
 class MapScreen extends StatefulWidget {
@@ -15,7 +14,6 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   final Completer<GoogleMapController> _controller = Completer();
-  LocationData? _currentPosition;
   LatLng? _latLong;
   bool _locating = false;
   geocoding.Placemark? _placeMark;
@@ -27,41 +25,7 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   void initState() {
-    _getUserLocation();
     super.initState();
-  }
-
-  Future<LocationData> _getLocationPermission() async {
-    Location location = Location();
-
-    bool serviceEnabled;
-    PermissionStatus permissionGranted;
-    LocationData locationData;
-
-    serviceEnabled = await location.serviceEnabled();
-    if (!serviceEnabled) {
-      serviceEnabled = await location.requestService();
-      if (!serviceEnabled) {
-        return Future.error('Service not enabled');
-      }
-    }
-
-    permissionGranted = await location.hasPermission();
-    if (permissionGranted == PermissionStatus.denied) {
-      permissionGranted = await location.requestPermission();
-      if (permissionGranted != PermissionStatus.granted) {
-        return Future.error('Permission Denied');
-      }
-    }
-
-    locationData = await location.getLocation();
-    return locationData;
-  }
-
-  _getUserLocation() async {
-    _currentPosition = await _getLocationPermission();
-    _goToCurrentPosition(
-        LatLng(_currentPosition!.latitude!, _currentPosition!.longitude!));
   }
 
   getUserAddress() async {
